@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../AuthContext'; 
 import StockCard from '../Stock/StockCard';
+import { MY_SERVER } from '../../services/server';
 
 const ProfilePage = () => {
   const [watchlist, setWatchlist] = useState([]);
@@ -12,7 +13,7 @@ const ProfilePage = () => {
     const fetchWatchlist = async () => {
       if (!currentUser) return; // Check if user is logged in
       try {
-        const response = await axios.get(`http://localhost:5000/watch_history`, {
+        const response = await axios.get(`${MY_SERVER}/watch_history`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('access_token')}`, // Include the JWT token
           },

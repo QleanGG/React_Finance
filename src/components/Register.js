@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './formStyle.css'
+import { MY_SERVER } from '../services/server';
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -11,7 +12,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/register', {
+      const res = await axios.post(`${MY_SERVER}/register`, {
         username,
         email,
         password,

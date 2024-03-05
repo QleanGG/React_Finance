@@ -1,0 +1,1 @@
+export const MY_SERVER = 'https://flask-back-finance.onrender.com';

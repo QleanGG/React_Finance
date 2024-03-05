@@ -4,6 +4,7 @@ import { useAuth } from '../AuthContext';
 import { useNavigate } from 'react-router-dom';
 import {jwtDecode} from 'jwt-decode';
 import axios from 'axios';
+import { MY_SERVER } from '../services/server';
 
 
 function Login() {
@@ -16,7 +17,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/login', {
+      const res = await axios.post(`${MY_SERVER}/login`, {
         username,
         password,
       });

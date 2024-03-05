@@ -1,6 +1,6 @@
 import axios from 'axios';
+import { MY_SERVER } from './server';
 
-const MY_SERVER = 'http://127.0.0.1:5000';
 
 export const fetchStockData = async (tickerSymbol) => {
   try {
