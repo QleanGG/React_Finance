@@ -1,0 +1,64 @@
+/* StockSearch.css */
+
+.stock-search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* max-width: 800px; */
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #20222a; 
+  color: #b04253; 
+}
+
+input {
+  width: 60%;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 40px !important;
+  border: 1px solid #5c829e; /* Light blue border */
+  border-radius: 5px;
+  background-color: #20222a; 
+  color: #fff; 
+}
+
+input[type="text"]::placeholder {
+  color: #5c829e; /* Light blue placeholder */
+}
+
+label {
+  padding-left: 20px;
+}
+
+.search-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #058aaf; 
+  
+  color: #fff; 
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.search-btn:hover {
+  background-color: #428bb0; 
+}
+
+.error-message {
+  color: #b04253; /* Red error message */
+  margin-top: 10px;
+}
+
+.stock-info {
+  margin-top: 40px;
+  text-align: center;
+  color: #5c829e; /* Light blue text for stock info */
+}
+
+.stock-search {
+  padding-top: 20px;
+}
+

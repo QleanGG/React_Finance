@@ -1,0 +1,22 @@
+/* Footer.css */
+.footer {
+    background-color: #20222a;
+    color: #b0d6f1 !important;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .footer .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .footer .text-muted {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9em;
+  }
+  

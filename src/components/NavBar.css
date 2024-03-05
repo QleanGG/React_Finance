@@ -1,0 +1,29 @@
+  .brand-custom {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em; /* Adjust size as needed */
+  }
+  
+  .nav-link-custom {
+    color: white;
+  }
+  
+  .navbar-custom {
+    background-color: #20222a !important; /* Dark theme background */
+  }
+  
+  /* Customize the brand text style */
+  .brand-custom {
+    color: #5c829e; /* Soft blue color */
+    font-weight: bold;
+    font-size: 1.5em; /* Adjust size as needed */
+  }
+  
+  /* Customize the color of navbar links */
+  .nav-link-custom {
+    color: #b0d6f1 !important; /* Reddish accent color */
+  }
+  
+  .nav-link-custom:hover {
+    color: #fff !important; /* White color on hover for better visibility */
+  }

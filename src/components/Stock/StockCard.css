@@ -1,0 +1,7 @@
+.click:hover {
+    cursor: pointer;
+}
+
+.cardbody:hover {
+    background-color: aliceblue;
+}

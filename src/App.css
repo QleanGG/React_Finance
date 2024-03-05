@@ -36,3 +36,56 @@
     transform: rotate(360deg);
   }
 }
+
+/* Style for the overall background */
+body {
+  background-color: #20222a; /* Dark background for contrast */
+  color: #fff; /* White text color */
+  font-family: 'Arial', sans-serif; /* Common font style */
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: #5c829e; /* Blue background for the navbar */
+}
+
+.nav-link {
+  color: #fff; /* White text color for navbar links */
+}
+
+.nav-link:hover {
+  color: #b04253; /* Reddish color on hover for links */
+}
+
+/* Hero banner styling */
+.hero-banner {
+  background-color: #5c829e; /* Blue background for the hero banner */
+  padding: 50px; /* Spacing inside the banner */
+  text-align: center; /* Centering the text */
+}
+
+.hero-banner h1 {
+  color: #20222a; /* Dark color for the heading */
+}
+
+/* Button styling */
+.button {
+  background-color: #b04253; /* Reddish background for buttons */
+  color: #fff; /* White text on buttons */
+  border: none; /* No border for the button */
+  padding: 10px 20px; /* Padding inside the button */
+  cursor: pointer; /* Cursor to indicate it's clickable */
+  transition: background-color 0.3s ease; /* Transition for a smooth color change */
+}
+
+.button:hover {
+  background-color: #20222a; /* Dark color on hover for the button */
+}
+
+/* Footer styling */
+.footer {
+  background-color: #20222a; /* Dark background for the footer */
+  color: #5c829e; /* Blue text color for the footer */
+  padding: 20px; /* Spacing inside the footer */
+  text-align: center; /* Centering the text in the footer */
+}
