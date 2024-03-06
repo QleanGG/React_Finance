@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const MY_SERVER = 'http://127.0.0.1:5000';
+import { MY_SERVER } from './server';
 
 const addToWatchList = async (symbol, token) => {
     try {
