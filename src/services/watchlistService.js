@@ -3,7 +3,6 @@ import { MY_SERVER } from './server';
 
 const addToWatchList = async (symbol, token) => {
     try {
-        console.log(token);
         const response = await axios.post(`${MY_SERVER}/watch_history`, { query: symbol }, {
             headers: {
                 'Content-Type': 'application/json',
@@ -11,14 +10,14 @@ const addToWatchList = async (symbol, token) => {
             },
         });
         if (response.status === 201) {
-            console.log('Added to watch list');
+            // console.log('Added to watch list');
             return true; 
         } else {
-            console.error('Failed to add to watch list');
+            // console.error('Failed to add to watch list');
             return false; 
         }
     } catch (error) {
-        console.error('Failed to add to watch list', error);
+        // console.error('Failed to add to watch list', error);
         return false; 
     }
 };

@@ -27,10 +27,10 @@ function Login() {
       setMessage(res.data.message);
 
       const decoded = jwtDecode(access_token);
-      console.log(decoded);
+      // console.log(decoded);
 
       const usernameFromToken = decoded.sub;
-      console.log(usernameFromToken);
+      // console.log(usernameFromToken);
 
       login(access_token);
       navigate('/')

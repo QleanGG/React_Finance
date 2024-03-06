@@ -4,8 +4,11 @@ import { fetchStockData } from "../services/stockService";
 import StockChart from "./StockChart";
 import { addToWatchList } from "../services/watchlistService";
 import { useAuth } from "../AuthContext"; // Import the AuthContext
+import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 const StockDetail = () => {
+  const navigate = useNavigate()
   const { symbol } = useParams();
   const { currentUser } = useAuth(); // Access the currentUser from the AuthContext
   const [stockData, setStockData] = useState(null);
@@ -35,6 +38,9 @@ const StockDetail = () => {
   }, [symbol]);
 
   const handleAddToWatchList = async () => {
+    if (currentUser === null) {
+        return navigate('/login')
+    }
     try {
       const token = currentUser ? currentUser.token : null; // Get the token from currentUser
       if (!token) {
@@ -43,9 +49,11 @@ const StockDetail = () => {
       }
       const added = await addToWatchList(symbol, token);
       if (added) {
-        console.log("Added to watch list");
+        // console.log("Added to watch list");
+        toast.success("Added to watch list")
       } else {
-        console.error("Failed to add to watch list");
+        toast.error("Failed to add to watch list")
+        // console.error("Failed to add to watch list");
       }
     } catch (error) {
       console.error("Failed to add to watch list", error);
