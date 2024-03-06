@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './formStyle.css'
 import { MY_SERVER } from '../services/server';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,13 +19,15 @@ function Register() {
         email,
         password,
       });
-      setMessage(res.data.message);
+      toast.success(res.data.message);
       // Clear form fields
       setUsername('');
       setEmail('');
       setPassword('');
+      navigate('/login');
+
     } catch (error) {
-      setMessage(error.response.data.message || 'An error occurred');
+      toast.error(error.response.data.message || 'An error occurred');
     }
   };
 
@@ -45,7 +49,6 @@ function Register() {
         </div>
         <button className='search-btn' type="submit">Register</button>
       </form>
-      {message && <p>{message}</p>}
     </div>
   );
 }

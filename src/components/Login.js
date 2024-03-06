@@ -5,12 +5,11 @@ import { useNavigate } from 'react-router-dom';
 import {jwtDecode} from 'jwt-decode';
 import axios from 'axios';
 import { MY_SERVER } from '../services/server';
-
+import { toast } from 'react-toastify';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -24,19 +23,19 @@ function Login() {
       
       const access_token = res.data.access_token;
       localStorage.setItem('access_token', access_token);
-      setMessage(res.data.message);
-
+      
       const decoded = jwtDecode(access_token);
       // console.log(decoded);
-
-      const usernameFromToken = decoded.sub;
+      
+      // const usernameFromToken = decoded.sub;
       // console.log(usernameFromToken);
-
+      
       login(access_token);
       navigate('/')
+      toast.success(res.data.message);
       
     } catch (error) {
-      setMessage(error.response.data.message || 'An error occurred');
+      toast.error(error.response.data.message || 'An error occurred');
     }
   };
 
@@ -54,7 +53,6 @@ function Login() {
         </div>
         <button className='search-btn' type="submit">Login</button>
       </form>
-      {message && <p>{message}</p>}
     </div>
   );
 }
