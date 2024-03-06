@@ -23,6 +23,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ToastContainer />
+    <SpeedInsights />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
