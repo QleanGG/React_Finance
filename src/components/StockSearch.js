@@ -26,7 +26,7 @@ function StockSearch() {
     if (matchedStock) {
       setTickerSymbol(matchedStock.Symbol);
     } else {
-      const isTickerFormat = /^[A-Z0-9]+$/.test(e.target.value);
+      const isTickerFormat = /^[A-Z0-9-]+$/.test(e.target.value);
       setTickerSymbol(isTickerFormat ? e.target.value : '');
     }
   };

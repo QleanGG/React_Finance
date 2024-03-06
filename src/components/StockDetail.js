@@ -44,7 +44,7 @@ const StockDetail = () => {
     try {
       const token = currentUser ? currentUser.token : null; // Get the token from currentUser
       if (!token) {
-        console.error("User not authenticated"); // Handle unauthenticated user
+        // console.error("User not authenticated"); // Handle unauthenticated user
         return;
       }
       const added = await addToWatchList(symbol, token);
@@ -56,7 +56,7 @@ const StockDetail = () => {
         // console.error("Failed to add to watch list");
       }
     } catch (error) {
-      console.error("Failed to add to watch list", error);
+        toast.error("Failed to add to watch list", error);
     }
   };
 
