@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { store } from "./app/store";
+// import { store } from "./app/store";
 // import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Register from "./components/Register";
@@ -22,7 +22,7 @@ import "react-toastify/dist/ReactToastify.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ToastContainer>
+    <ToastContainer />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
@@ -39,6 +39,6 @@ root.render(
           </Route>
         </Routes>
       </BrowserRouter>
-    </ToastContainer>
+    
   </React.StrictMode>
 );

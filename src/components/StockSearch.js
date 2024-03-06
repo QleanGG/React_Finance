@@ -12,22 +12,28 @@ function StockSearch() {
 
   useEffect(() => {
     const filtered = stockList.filter(item => 
-      item["Company Name"].toLowerCase().includes(inputValue.toLowerCase())
-    ).slice(0, 50); // Limit the number of options displayed
+      item["Company Name"].toLowerCase().includes(inputValue.toLowerCase()) || item.Symbol.toLocaleLowerCase().includes(inputValue.toLowerCase)
+    ).slice(0, 20); // Limit the number of options displayed
     setFilteredOptions(filtered);
   }, [inputValue]);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-    const stock = stockList.find(item => item["Company Name"] === e.target.value);
-    if (stock) {
-      setTickerSymbol(stock.Symbol);
+    const matchedStock = stockList.find(item =>
+      item["Company Name"] === e.target.value || item.Symbol === e.target.value.split(' - ')[1]
+    );
+
+    if (matchedStock) {
+      setTickerSymbol(matchedStock.Symbol);
+    } else {
+      const isTickerFormat = /^[A-Z0-9]+$/.test(e.target.value);
+      setTickerSymbol(isTickerFormat ? e.target.value : '');
     }
   };
 
   const handleSearch = () => {
     if (!tickerSymbol) {
-      setError('Please select a valid company from the list');
+      setError('Company not found, please try another one');
       return;
     }
 
@@ -40,12 +46,12 @@ function StockSearch() {
         type="text"
         value={inputValue}
         onChange={handleInputChange}
-        placeholder="Enter Company Name"
+        placeholder="Enter Ticker or Company Name"
         list="stock-datalist"
       />
       <datalist id="stock-datalist">
         {filteredOptions.map((item, index) => (
-          <option key={index} value={item["Company Name"]} />
+          <option key={index} value={`${item["Company Name"]} - ${item.Symbol}`} />
         ))}
       </datalist>
 
